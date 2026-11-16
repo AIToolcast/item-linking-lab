@@ -1,0 +1,13 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {compare,report} from './model.mjs';
+test('explicit original links survive reordering',()=>assert.deepEqual(compare('reordered','linked').map(r=>r.selected),['C-303','C-101','C-202']));
+test('first returns a value but misaddresses two customers',()=>assert.deepEqual(compare('reordered','first').map(r=>r.status),['wrong_customer','match','wrong_customer']));
+test('position is wrong for every reordered item',()=>assert.ok(compare('reordered','position').every(r=>r.status==='wrong_customer')));
+test('filter retains original indexes rather than reindexing',()=>{assert.deepEqual(compare('filtered','linked').map(r=>r.selected),['C-202','C-303']);assert.ok(compare('filtered','position').every(r=>r.status==='wrong_customer'));});
+test('missing metadata does not silently choose a customer',()=>{const [r]=compare('missing','linked');assert.equal(r.selected,null);assert.equal(r.error,'Missing link');});
+test('first masks missing link without satisfying intended customer',()=>assert.equal(compare('missing','first')[0].status,'wrong_customer'));
+test('aggregate cannot resolve to one source',()=>assert.equal(compare('combined','linked')[0].error,'Ambiguous link'));
+test('positional aggregate requires a business decision, not a claimed match',()=>assert.equal(compare('combined','first')[0].status,'needs_decision'));
+test('unknown and prototype property names rejected',()=>{assert.throws(()=>compare('__proto__','first'));assert.throws(()=>compare('filtered','toString'));});
+test('report is reproducible and labels simulation scope',()=>{assert.deepEqual(report('filtered','linked'),report('filtered','linked'));assert.equal(report('filtered','linked').n8n_runtime_test,false);});

@@ -1,0 +1,68 @@
+{
+  "output_position": {
+    "tool": "Item Linking Lab",
+    "version": "0.1.0",
+    "kind": "constructed_educational_model",
+    "n8n_runtime_test": false,
+    "scenario": "filtered",
+    "method": "position",
+    "rows": [
+      {
+        "outputIndex": 0,
+        "sourceIndexes": [
+          1
+        ],
+        "expected": "C-202",
+        "selected": "C-101",
+        "email": "ada@example.invalid",
+        "status": "wrong_customer",
+        "error": null
+      },
+      {
+        "outputIndex": 1,
+        "sourceIndexes": [
+          2
+        ],
+        "expected": "C-303",
+        "selected": "C-202",
+        "email": "ben@example.invalid",
+        "status": "wrong_customer",
+        "error": null
+      }
+    ],
+    "limitation": "Synthetic single-input teaching example. Does not inspect or execute n8n workflows, validate real customer relationships, or model all automatic linking, branches, loops, runs and subworkflows."
+  },
+  "recorded_link": {
+    "tool": "Item Linking Lab",
+    "version": "0.1.0",
+    "kind": "constructed_educational_model",
+    "n8n_runtime_test": false,
+    "scenario": "filtered",
+    "method": "linked",
+    "rows": [
+      {
+        "outputIndex": 0,
+        "sourceIndexes": [
+          1
+        ],
+        "expected": "C-202",
+        "selected": "C-202",
+        "email": "ben@example.invalid",
+        "status": "match",
+        "error": null
+      },
+      {
+        "outputIndex": 1,
+        "sourceIndexes": [
+          2
+        ],
+        "expected": "C-303",
+        "selected": "C-303",
+        "email": "cam@example.invalid",
+        "status": "match",
+        "error": null
+      }
+    ],
+    "limitation": "Synthetic single-input teaching example. Does not inspect or execute n8n workflows, validate real customer relationships, or model all automatic linking, branches, loops, runs and subworkflows."
+  }
+}

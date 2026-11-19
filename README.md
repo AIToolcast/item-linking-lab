@@ -1,6 +1,6 @@
 # Item Linking Lab
 
-[Use the tool](https://aitoolcast.com/tools/item-linking-lab/) · [AI Toolcast](https://aitoolcast.com/)
+[Use the tool](https://aitoolcast.com/tools/item-linking-lab/) · [Try the filtered-customer walkthrough](https://aitoolcast.com/articles/n8n-item-linking-filter-output-position/?utm_source=github&utm_medium=referral&utm_campaign=item-linking-example) · [AI Toolcast](https://aitoolcast.com/)
 
 ![The constructed customer-mapping exercise](demo.png)
 
